@@ -1,5 +1,5 @@
 <template>
-  <t-head-menu theme="dark" value="item1" height="120px" class="nav">
+  <t-head-menu theme="dark" :value="active" height="120px" class="nav">
     <template #logo>
       <img
         width="136"
@@ -16,6 +16,9 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 const routeList = [
   {
     title: '首页',
@@ -53,6 +56,10 @@ const routeList = [
     name: 'Member',
   },
 ];
+
+const active = computed(() => {
+  return useRoute().path;
+});
 </script>
 
 <style lang="less" scoped>
