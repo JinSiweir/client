@@ -76,6 +76,7 @@ module.exports = {
         'vue/multi-word-component-names': 0,
         'vue/no-reserved-props': 0,
         'vue/no-v-html': 0,
+        '@typescript-eslint/no-explicit-any': 'off', // any open
       },
     },
     {

@@ -1,10 +1,12 @@
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
-      <component :is="Component" />
+      <div>
+        <Banner />
+        <component :is="Component" />
+      </div>
     </transition>
   </router-view>
-  <frame-page />
 </template>
 
 <script setup lang="ts">
@@ -19,6 +21,8 @@
 //   const router = useRouter();
 //   return router.currentRoute.value.fullPath;
 // });
+
+import Banner from './Banner.vue';
 </script>
 <style lang="less" scoped>
 .fade-leave-active,

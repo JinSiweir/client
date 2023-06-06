@@ -20,6 +20,54 @@ const ROUTES: Array<RouteRecordRaw> = [
           title: '首页',
         },
       },
+      {
+        path: '/introduce',
+        name: 'Introduce',
+        component: () => import('@/pages/introduce/index.vue'),
+        meta: {
+          title: '海外仓介绍',
+        },
+      },
+      {
+        path: '/behalf',
+        name: 'Behalf',
+        component: () => import('@/pages/behalf/index.vue'),
+        meta: {
+          title: '一件代发',
+        },
+      },
+      {
+        path: '/news',
+        name: 'News',
+        component: () => import('@/pages/news/index.vue'),
+        meta: {
+          title: '行业新闻',
+        },
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import('@/pages/about/index.vue'),
+        meta: {
+          title: '关于我们',
+        },
+      },
+      {
+        path: '/product',
+        name: 'Product',
+        component: () => import('@/pages/product/index.vue'),
+        meta: {
+          title: '仓库商品',
+        },
+      },
+      {
+        path: '/member',
+        name: 'Member',
+        component: () => import('@/pages/member/index.vue'),
+        meta: {
+          title: '用户中心',
+        },
+      },
     ],
   },
   {
