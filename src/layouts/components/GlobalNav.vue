@@ -2,8 +2,8 @@
   <div :class="layoutCls">
     <t-head-menu theme="dark" value="item1" height="120px">
       <template #operations>
-        <t-button v-if="!token"> 请登录 </t-button>
-        <template v-if="token">
+        <t-button v-if="!hasLogin" @click="handleLogin"> 请登录 </t-button>
+        <template v-if="hasLogin">
           <t-avatar :image="userInfo.avatar" />
           <t-button @click="logout"> 退出 </t-button>
         </template>
@@ -24,14 +24,22 @@ import { computed } from 'vue';
 import { prefix } from '@/config/global';
 import { langList } from '@/locales';
 import { useLocale } from '@/locales/useLocale';
+import router from '@/router';
 import { useUserStore } from '@/store';
 
 const { changeLocale } = useLocale();
 const changeLang = (lang: unknown) => {
   changeLocale(lang as string);
 };
+const { userInfo, logout } = useUserStore();
 
-const { logout, token, userInfo } = useUserStore();
+const handleLogin = () => {
+  router.push('/login');
+};
+
+const hasLogin = computed(() => {
+  return useUserStore().token;
+});
 
 const layoutCls = computed(() => [`${prefix}-global-nav`]);
 </script>
