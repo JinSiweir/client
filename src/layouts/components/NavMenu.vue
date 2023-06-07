@@ -56,8 +56,9 @@ const routeList = [
     name: 'Member',
   },
 ];
+// 菜单的值为 二级路由的path
 const active = computed(() => {
-  return useRoute().path;
+  return useRoute().matched[1].path;
 });
 </script>
 

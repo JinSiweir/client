@@ -64,9 +64,20 @@ const ROUTES: Array<RouteRecordRaw> = [
         path: '/member',
         name: 'Member',
         component: () => import('@/pages/member/index.vue'),
+        redirect: '/record',
         meta: {
           title: '用户中心',
         },
+        children: [
+          {
+            path: '/record',
+            name: 'MemberRecord',
+            component: () => import('@/pages/member/record/index.vue'),
+            meta: {
+              title: '用户中心',
+            },
+          },
+        ],
       },
     ],
   },

@@ -1,6 +1,5 @@
 <template>
-  <div>Rebate Page</div>
-  <router-view> </router-view>
+  <div>hahaha</div>
 </template>
 
 <script setup lang="ts"></script>
