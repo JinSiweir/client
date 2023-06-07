@@ -2,6 +2,8 @@ import { defineStore } from 'pinia';
 
 import { LoginInfo } from '@/api/model/userModel';
 import { login } from '@/api/user';
+import router from '@/router';
+import { store } from '@/store';
 
 interface UserInfo {
   avatar?: string;
@@ -31,9 +33,10 @@ export const useUserStore = defineStore('user', {
         console.error(error);
       }
     },
-
     async logout() {
       this.userInfo = { ...InitUserInfo };
+      this.token = '';
+      router.push('/login');
     },
   },
   persist: {
@@ -44,3 +47,7 @@ export const useUserStore = defineStore('user', {
     paths: ['token'],
   },
 });
+
+export function getUserStore() {
+  return useUserStore(store);
+}

@@ -56,7 +56,6 @@ const routeList = [
     name: 'Member',
   },
 ];
-
 const active = computed(() => {
   return useRoute().path;
 });
