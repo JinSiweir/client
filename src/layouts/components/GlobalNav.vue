@@ -3,10 +3,10 @@
     <t-head-menu theme="dark" value="item1" height="120px">
       <template #operations>
         <t-button v-if="!hasLogin" @click="handleLogin"> 请登录 </t-button>
-        <template v-if="hasLogin">
+        <t-space v-if="hasLogin">
           <t-avatar :image="userInfo.avatar" />
           <t-button @click="logout"> 退出 </t-button>
-        </template>
+        </t-space>
 
         <t-dropdown trigger="click" :options="langList" :on-click="(e: any) => changeLang(e.value)">
           <t-button theme="default" shape="square" variant="text">

@@ -57,7 +57,7 @@ module.exports = {
         varsIgnorePattern: '^_',
       },
     ],
-
+    '@typescript-eslint/no-explicit-any': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-types': 'off',
