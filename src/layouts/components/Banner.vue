@@ -22,10 +22,10 @@ const pathAndBg: Map<string, string> = new Map([
 ]);
 
 const bannerInfo = computed(() => {
-  const { meta, matched } = useRoute();
+  const { matched } = useRoute();
   const bannerJpg = pathAndBg.get(matched[1].path);
   return {
-    title: meta.title,
+    title: matched[1].meta.title,
     bannerJpg,
   };
 });

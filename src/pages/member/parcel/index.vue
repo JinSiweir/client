@@ -1,45 +1,35 @@
-<!-- <template>
+<template>
   <div class="list-admin-table">
-    <t-form ref="form" :data="formData" :label-width="80" colon @reset="() => fetchData()" @submit="onSubmit">
-      <t-row>
-        <t-col :span="10">
-          <t-row :gutter="[24, 24]">
-            <t-col :span="4">
-              <t-form-item label="用户名" name="username">
-                <t-input
-                  v-model="formData.username"
-                  class="form-item-content"
-                  type="search"
-                  placeholder="请输入用户名称"
-                  :style="{ minWidth: '134px' }"
-                />
-              </t-form-item>
-            </t-col>
-            <t-col :span="4">
-              <t-form-item label="用户编号" name="id">
-                <t-input
-                  v-model="formData.id"
-                  :type="'number'"
-                  autocomplete="off"
-                  class="form-item-content"
-                  placeholder="请输用户编号"
-                  :style="{ minWidth: '134px' }"
-                />
-              </t-form-item>
-            </t-col>
-          </t-row>
-        </t-col>
-
-        <t-col :span="2" class="operation-container">
-          <t-button theme="primary" @click="createVisible = true">
-            <template #icon><add-icon /></template>
-            新建
+    <t-row>
+      <t-col :span="10">
+        <t-row>
+          <t-col :span="4">
+            <t-form-item name="username" label-width="0">
+              <t-select v-model="pickupStatus">
+                <t-option
+                  v-for="item in SEARCH_OPTIONS"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></t-option>
+              </t-select>
+            </t-form-item>
+          </t-col>
+          <t-button theme="primary" type="submit" :style="{ marginLeft: 'var(--td-comp-margin-s)' }" @click="onSubmit">
+            查询
           </t-button>
-          <t-button theme="primary" type="submit" :style="{ marginLeft: 'var(--td-comp-margin-s)' }"> 查询 </t-button>
-          <t-button type="reset" variant="base" theme="default"> 重置 </t-button>
-        </t-col>
-      </t-row>
-    </t-form>
+        </t-row>
+      </t-col>
+      <t-col :span="2"
+        ><t-pagination
+          v-model:current="currentPage"
+          v-model:page-size="pageSize"
+          class="pagination-container"
+          :total="total"
+        >
+        </t-pagination>
+      </t-col>
+    </t-row>
 
     <div class="table-container">
       <t-table
@@ -51,41 +41,29 @@
         :hover="true"
       >
         <template #op="slotProps">
-          <t-button variant="text" theme="primary" shape="square">查看</t-button>
+          <t-button variant="text" theme="primary" shape="square">查看{{ slotProps.a }}</t-button>
         </template>
       </t-table>
-      <t-pagination
-        v-model:current="currentPage"
-        v-model:page-size="pageSize"
-        class="pagination-container"
-        :total="total"
-      >
-      </t-pagination>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { AddIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
 
-import { deleteAdmin, getAdminList } from '@/api/user';
+import { queryOrderSoverseas } from '@/api/member';
 import { useFetchData } from '@/hooks/useFetchData';
 
-import { COLUMNS } from './constants';
+import { COLUMNS, SEARCH_OPTIONS } from './constants';
 
-const searchForm = {
-  id: undefined,
-  username: undefined,
-};
-const formData = ref({ ...searchForm });
-const { data, total, currentPage, pageSize, fetchData, fetchLoading } = useFetchData(getAdminList, formData);
+const pickupStatus = ref('all');
+const { data, total, currentPage, pageSize, fetchData, fetchLoading } = useFetchData(queryOrderSoverseas, {
+  pickupStatus: pickupStatus.value,
+});
 
 const onSubmit = (val) => {
   /* eslint no-unused-expressions: "off" */
   val.validateResult && fetchData();
 };
-
-const createVisible = ref(false);
 </script>
 
 <style lang="less" scoped>
@@ -96,9 +74,6 @@ const createVisible = ref(false);
 
   .table-container {
     margin-top: var(--td-comp-margin-xxl);
-  }
-  .pagination-container {
-    margin-top: var(--td-comp-margin-xl);
   }
 }
 
@@ -127,4 +102,4 @@ const createVisible = ref(false);
     margin-left: var(--td-comp-margin-s);
   }
 }
-</style> -->
+</style>

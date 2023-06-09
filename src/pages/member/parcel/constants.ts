@@ -1,5 +1,20 @@
 import { PrimaryTableCol, TableRowData } from 'tdesign-vue-next';
 
+export const SEARCH_OPTIONS = [
+  {
+    label: '全部',
+    value: 'all',
+  },
+  {
+    label: '已发货',
+    value: 'picked',
+  },
+  {
+    label: '未发货',
+    value: 'unpicked',
+  },
+];
+
 export const COLUMNS: PrimaryTableCol<TableRowData>[] = [
   { colKey: 'row-select', type: 'multiple', width: 64, fixed: 'left' },
   {
