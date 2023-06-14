@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div v-if="bannerInfo.path !== '/home'" class="banner">
     <img :src="bannerInfo.bannerJpg" class="banner-bg" />
     <div class="banner-title">{{ bannerInfo.title }}</div>
   </div>
@@ -25,6 +25,7 @@ const bannerInfo = computed(() => {
   const { matched } = useRoute();
   const bannerJpg = pathAndBg.get(matched[1].path);
   return {
+    path: matched[1].path,
     title: matched[1].meta.title,
     bannerJpg,
   };
