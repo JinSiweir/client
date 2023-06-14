@@ -1,18 +1,18 @@
 <template>
-  <div :class="layoutCls">
-    <t-head-menu theme="dark" value="item1" height="120px">
+  <div :class="layoutCls" class="container">
+    <t-head-menu theme="dark" height="120px" class="global-nav-menu">
       <template #operations>
         <Button v-if="!hasLogin" @click="handleLogin"> 请登录 </Button>
         <t-space v-if="hasLogin">
           <t-avatar :image="userInfo.avatar" />
           <Divider :layout="'vertical'" class="divider"></Divider>
           <Button :variant="'text'" :ghost="true" @click="logout"> 退出 </Button>
-          <t-dropdown trigger="click" :options="langList" :on-click="(e: any) => changeLang(e.value)">
-            <Button theme="default" shape="square" variant="text">
-              <t-icon name="internet" />
-            </Button>
-          </t-dropdown>
         </t-space>
+        <t-dropdown trigger="click" :options="langList" :on-click="(e: any) => changeLang(e.value)">
+          <Button theme="default" shape="square" variant="text">
+            <t-icon name="internet" />
+          </Button>
+        </t-dropdown>
       </template>
     </t-head-menu>
   </div>

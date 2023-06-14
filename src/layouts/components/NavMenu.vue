@@ -1,5 +1,5 @@
 <template>
-  <t-head-menu theme="dark" :value="active" height="120px" class="nav">
+  <t-head-menu theme="dark" :value="active" height="120px" class="nav container">
     <template #logo>
       <img
         width="136"
@@ -67,5 +67,6 @@ const active = computed(() => {
   :deep(.t-menu) {
     justify-content: flex-end;
   }
+  margin: auto;
 }
 </style>

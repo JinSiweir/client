@@ -1,5 +1,5 @@
 <template>
-  <div class="userinfo-container">
+  <div class="userinfo-container container">
     <UserInfoCard />
     <router-view />
   </div>
@@ -16,7 +16,5 @@ import UserInfoCard from './components/UserInfoCard.vue';
   display: flex;
   align-items: center;
   flex-direction: column;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 </style>

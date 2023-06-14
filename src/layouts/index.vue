@@ -1,9 +1,9 @@
 <template>
   <t-layout>
-    <t-header>
+    <t-header class="global-header">
       <GlobalNav />
     </t-header>
-    <t-header> <NavMenu /> </t-header>
+    <t-header class="nav-header"> <NavMenu /> </t-header>
     <t-content>
       <Content />
     </t-content>
@@ -17,4 +17,11 @@ import Content from './components/Content.vue';
 import GlobalNav from './components/GlobalNav.vue';
 import NavMenu from './components/NavMenu.vue';
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.global-header {
+  background: @base-bg-primary-color;
+}
+.nav-header {
+  background: @base-bg-primary-color;
+}
+</style>
