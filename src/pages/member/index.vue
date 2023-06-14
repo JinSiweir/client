@@ -1,11 +1,13 @@
 <template>
   <div class="userinfo-container">
     <UserInfoCard />
-    <router-view> </router-view>
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
+import { RouterView } from 'vue-router';
+
 import UserInfoCard from './components/UserInfoCard.vue';
 </script>
 

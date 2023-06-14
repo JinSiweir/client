@@ -5,7 +5,7 @@
         <t-row>
           <t-col :span="4">
             <t-form-item name="username" label-width="0">
-              <t-select v-model="pickupStatus">
+              <t-select v-model="pickupStatus" @change="handleSearch">
                 <t-option
                   v-for="item in SEARCH_OPTIONS"
                   :key="item.value"
@@ -15,8 +15,13 @@
               </t-select>
             </t-form-item>
           </t-col>
-          <t-button theme="primary" type="submit" :style="{ marginLeft: 'var(--td-comp-margin-s)' }" @click="onSubmit">
-            查询
+          <t-button
+            theme="primary"
+            type="submit"
+            :style="{ marginLeft: 'var(--td-comp-margin-s)' }"
+            @click="handleDelivery"
+          >
+            批量发货
           </t-button>
         </t-row>
       </t-col>
@@ -36,12 +41,19 @@
         :data="data"
         :loading="fetchLoading"
         :columns="COLUMNS"
-        :row-key="'index'"
-        :vertical-align="'top'"
+        :vertical-align="'middle'"
         :hover="true"
+        :selected-row-keys="selectedRowKeys"
+        select-on-row-click
+        @select-change="onSelectChange"
       >
         <template #op="slotProps">
-          <t-button variant="text" theme="primary" shape="square">查看{{ slotProps.a }}</t-button>
+          <t-button @click="handleInformation(slotProps)">查看商品</t-button>
+        </template>
+        <template #info="slotProps">
+          <div>
+            {{ slotProps?.row?.name }}
+          </div>
         </template>
       </t-table>
     </div>
@@ -60,9 +72,20 @@ const { data, total, currentPage, pageSize, fetchData, fetchLoading } = useFetch
   pickupStatus: pickupStatus.value,
 });
 
-const onSubmit = (val) => {
-  /* eslint no-unused-expressions: "off" */
-  val.validateResult && fetchData();
+const handleSearch = () => {
+  fetchData();
+};
+const selectedRowKeys = ref([]);
+const onSelectChange = (value) => {
+  selectedRowKeys.value = value;
+};
+const handleDelivery = () => {
+  console.log(selectedRowKeys.value);
+};
+
+const handleInformation = (info: any) => {
+  // 查看信息
+  console.log(info);
 };
 </script>
 

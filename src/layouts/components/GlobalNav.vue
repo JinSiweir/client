@@ -2,23 +2,24 @@
   <div :class="layoutCls">
     <t-head-menu theme="dark" value="item1" height="120px">
       <template #operations>
-        <t-button v-if="!hasLogin" @click="handleLogin"> 请登录 </t-button>
+        <Button v-if="!hasLogin" @click="handleLogin"> 请登录 </Button>
         <t-space v-if="hasLogin">
           <t-avatar :image="userInfo.avatar" />
-          <t-button @click="logout"> 退出 </t-button>
+          <Divider :layout="'vertical'" class="divider"></Divider>
+          <Button :variant="'text'" :ghost="true" @click="logout"> 退出 </Button>
+          <t-dropdown trigger="click" :options="langList" :on-click="(e: any) => changeLang(e.value)">
+            <Button theme="default" shape="square" variant="text">
+              <t-icon name="internet" />
+            </Button>
+          </t-dropdown>
         </t-space>
-
-        <t-dropdown trigger="click" :options="langList" :on-click="(e: any) => changeLang(e.value)">
-          <t-button theme="default" shape="square" variant="text">
-            <t-icon name="internet" />
-          </t-button>
-        </t-dropdown>
       </template>
     </t-head-menu>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { Button, Divider } from 'tdesign-vue-next';
 import { computed } from 'vue';
 
 import { prefix } from '@/config/global';

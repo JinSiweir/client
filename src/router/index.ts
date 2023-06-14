@@ -70,7 +70,7 @@ const ROUTES: Array<RouteRecordRaw> = [
         },
         children: [
           {
-            path: '/member/parcel',
+            path: 'parcel',
             name: 'MemberParcel',
             component: () => import('@/pages/member/parcel/index.vue'),
             meta: {
@@ -78,7 +78,7 @@ const ROUTES: Array<RouteRecordRaw> = [
             },
           },
           {
-            path: '/member/rebate',
+            path: 'rebate',
             name: 'MemberRebate',
             component: () => import('@/pages/member/rebate/index.vue'),
             meta: {
@@ -86,7 +86,7 @@ const ROUTES: Array<RouteRecordRaw> = [
             },
           },
           {
-            path: '/member/record',
+            path: 'record',
             name: 'MemberRecord',
             component: () => import('@/pages/member/record/index.vue'),
             meta: {

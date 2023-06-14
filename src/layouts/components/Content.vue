@@ -1,27 +1,15 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <div>
-        <Banner />
+  <div>
+    <Banner />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
         <component :is="Component" />
-      </div>
-    </transition>
-  </router-view>
+      </transition>
+    </router-view>
+  </div>
 </template>
 
 <script setup lang="ts">
-// <suspense>标签属于实验性功能，请谨慎使用
-// 如果存在需解决/page/1=> /page/2 刷新数据问题 请修改代码 使用activeRouteFullPath 作为key
-// <suspense>
-//  <component :is="Component" :key="activeRouteFullPath" />
-// </suspense>
-
-// import { useRouter } from 'vue-router';
-// const activeRouteFullPath = computed(() => {
-//   const router = useRouter();
-//   return router.currentRoute.value.fullPath;
-// });
-
 import Banner from './Banner.vue';
 </script>
 <style lang="less" scoped>

@@ -26,8 +26,8 @@ dependencies:
     specifier: ^0.1.11
     version: 0.1.11(vue@3.3.2)
   tdesign-vue-next:
-    specifier: ^1.3.5
-    version: 1.3.5(vue@3.3.2)
+    specifier: ^1.3.6
+    version: 1.3.6(vue@3.3.2)
   tvision-color:
     specifier: ^1.6.0
     version: 1.6.0
@@ -4266,8 +4266,8 @@ packages:
       vue: 3.3.2
     dev: false
 
-  /tdesign-vue-next@1.3.5(vue@3.3.2):
-    resolution: {integrity: sha512-kAhWq/Rzke9HmEpvAWTXiJ38cSPd+3wgyzjQ2CbWg27MqLZD3SE+ZZcWRBANrh6ilTV40ewUiUjgwGEwGYIxVA==}
+  /tdesign-vue-next@1.3.6(vue@3.3.2):
+    resolution: {integrity: sha512-RorjGV5vSUNoTbUjV4wYT4brKMDt977tSEvTbvbztqIECr8iaz4t58UnKt+7ayBVsYVCORP6GfvHd6OCFWqmAw==}
     peerDependencies:
       vue: '>=3.1.0'
     dependencies:

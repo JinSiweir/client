@@ -17,16 +17,17 @@
       <t-space class="action">
         <t-button>充值</t-button>
         <t-button>记录</t-button>
-        <t-button>退出</t-button>
+        <Button>退出</Button>
       </t-space>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import { Button } from 'tdesign-vue-next';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const goRebate = () => {
+const goRebate = async () => {
   router.push('/member/rebate');
 };
 </script>

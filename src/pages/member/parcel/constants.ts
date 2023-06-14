@@ -18,43 +18,36 @@ export const SEARCH_OPTIONS = [
 export const COLUMNS: PrimaryTableCol<TableRowData>[] = [
   { colKey: 'row-select', type: 'multiple', width: 64, fixed: 'left' },
   {
-    title: 'id',
-    align: 'left',
-    width: 120,
-    colKey: 'id',
-    fixed: 'left',
-  },
-  {
-    title: '用户名',
-    width: 160,
-    ellipsis: true,
-    colKey: 'username',
-  },
-  {
-    title: '超级管理员',
-    colKey: 'superAdmin',
-  },
-  {
-    title: '状态',
-    colKey: 'active',
-  },
-  {
-    title: '创建时间',
-    width: 160,
-    ellipsis: true,
-    colKey: 'createTime',
-  },
-  {
-    title: '更新时间',
-    width: 160,
-    ellipsis: true,
-    colKey: 'updateTime',
-  },
-  {
-    align: 'left',
-    fixed: 'right',
-    width: 160,
     colKey: 'op',
+    align: 'center',
     title: '操作',
+  },
+  {
+    title: '商品信息',
+    colKey: 'info',
+  },
+  {
+    title: '快递单号',
+    width: 160,
+    ellipsis: true,
+    colKey: 'kuaidicode',
+  },
+  {
+    title: '利润',
+    colKey: 'profit_amount',
+  },
+  {
+    title: '发货状态',
+    colKey: 'delivery_status',
+  },
+  {
+    title: '编号',
+    ellipsis: true,
+    colKey: 'order_code',
+  },
+  {
+    title: '时间',
+    ellipsis: true,
+    colKey: 'order_date',
   },
 ];

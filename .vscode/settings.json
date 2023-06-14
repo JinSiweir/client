@@ -1,6 +1,7 @@
 {
   "files.eol": "\n",
   "editor.tabSize": 2,
+  "editor.linkedEditing": true,
   "eslint.format.enable": true,
   "eslint.validate": [
     "javascript",
@@ -29,4 +30,5 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
 }
