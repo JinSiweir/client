@@ -13,3 +13,42 @@ export enum ContentTypeEnum {
   FormURLEncoded = 'application/x-www-form-urlencoded;charset=UTF-8',
   FormData = 'multipart/form-data;charset=UTF-8',
 }
+
+// 路由菜单
+export const MENU_ROUTE_LIST = [
+  {
+    title: '首页',
+    path: '/home',
+    name: 'HomeIndex',
+  },
+  {
+    title: '海外仓介绍',
+    path: '/introduce',
+    name: 'Introduce',
+  },
+  {
+    title: '一件代发',
+    path: '/behalf',
+    name: 'Behalf',
+  },
+  {
+    title: '新闻',
+    path: '/news',
+    name: 'News',
+  },
+  {
+    title: '关于我们',
+    path: '/about',
+    name: 'About',
+  },
+  {
+    title: '仓库商品',
+    path: '/product',
+    name: 'Product',
+  },
+  {
+    title: '用户中心',
+    path: '/member',
+    name: 'Member',
+  },
+];

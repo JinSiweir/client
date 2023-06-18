@@ -19,9 +19,9 @@
       <div class="data-content-head">
         <div class="data-content-head-left">
           <RadioGroup variant="default-filled" default-value="1">
-            <RadioButton value="1">选项一</RadioButton>
-            <RadioButton value="2">选项2</RadioButton>
-            <RadioButton value="3">选项3</RadioButton>
+            <RadioButton value="1">我的佣金</RadioButton>
+            <RadioButton value="2">团队数据</RadioButton>
+            <RadioButton value="3">领取记录</RadioButton>
           </RadioGroup>
         </div>
         <div class="data-content-head-right">

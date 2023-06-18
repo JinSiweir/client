@@ -15,9 +15,9 @@
         </t-button></t-space
       >
       <t-space class="action">
-        <t-button>充值</t-button>
-        <t-button>记录</t-button>
-        <Button>退出</Button>
+        <t-button @click="handleTopup">充值</t-button>
+        <t-button @click="goRecord">记录</t-button>
+        <Button @click="logout">退出</Button>
       </t-space>
     </div>
   </div>
@@ -26,9 +26,21 @@
 import { Button } from 'tdesign-vue-next';
 import { useRouter } from 'vue-router';
 
+import { useUserStore } from '@/store';
+
 const router = useRouter();
+const { logout } = useUserStore();
+
 const goRebate = async () => {
   router.push('/member/rebate');
+};
+
+const goRecord = () => {
+  router.push('/member/record');
+};
+
+const handleTopup = () => {
+  console.log('点击充值');
 };
 </script>
 
